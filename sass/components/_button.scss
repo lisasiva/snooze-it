@@ -1,0 +1,23 @@
+.btn {
+    &:link,
+    &:visited {
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        padding: 1.5rem 7rem;
+        border-radius: 1rem;
+        font-size: 1.35rem;
+        margin-bottom: 1.35rem;
+    }
+    
+    &-gradient {
+        background-image: $gradient-violet-blue;
+        color: white;
+        @include button-press;
+    }
+    
+    &-shadow {
+        color: $color-gray-dark;
+        @include button-press;
+    }
+}

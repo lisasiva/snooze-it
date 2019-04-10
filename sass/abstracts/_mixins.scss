@@ -1,0 +1,9 @@
+@mixin button-press {
+    transform: translateY(-.3rem);
+    box-shadow: $black-shadow-diffused;
+
+    &:active {
+        transform: translateY(-.1rem);
+        box-shadow: $black-shadow-darker; 
+    }   
+}

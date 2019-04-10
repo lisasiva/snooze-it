@@ -1,0 +1,43 @@
+// Home screen header
+.home {
+    //height: 100vh;
+    
+    // Text on home screen
+    &__text-box {
+        left: 50%;
+        margin: 2rem 0rem 5rem 0rem;
+        text-align: center;
+        
+    }
+    
+    &-headline {
+        font-size: 2.5rem;
+        &--gradient {
+            background: linear-gradient(to right, $color-violet-dark 0%, $color-blue-dark 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;        
+        }
+    }
+    
+    &-subheadline {
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: $color-gray-blue;
+    }
+    
+    // Image on home screen
+    &__image-box {
+        //background: url(../../img/blob-shape.svg) no-repeat top;
+        //background-size: contain;
+        text-align: center;
+        margin: 5rem auto;
+    }
+    
+    .image-main {
+        width: 70%;        
+    }
+    
+}
+
+
+
