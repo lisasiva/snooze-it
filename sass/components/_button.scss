@@ -10,14 +10,27 @@
         margin-bottom: 1.35rem;
     }
     
-    &-gradient {
+    &--gradient {
         background-image: $gradient-violet-blue;
-        color: white;
+        color: $color-white;
         @include button-press;
     }
     
-    &-shadow {
+    &--shadow {
         color: $color-gray-dark;
         @include button-press;
+    }
+    
+    &--snooze {
+        display: block;
+        padding: 2rem 14rem;
+        border-radius: 10rem;
+        background-image: $gradient-violet;
+        color: $color-white;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 1.35rem;
+        margin-top: 5rem;
+        box-shadow: $violet-shadow-diffused;
     }
 }
