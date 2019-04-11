@@ -53,7 +53,7 @@ body {
   text-transform: uppercase;
   font-size: 1.35rem;
   margin-top: 5rem;
-  box-shadow: 0 0 3rem rgba(121, 52, 250, 0.5); }
+  box-shadow: 0 0 3rem rgba(121, 52, 250, 0.25); }
 
 .header {
   height: 20vh;
