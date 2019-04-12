@@ -60,6 +60,8 @@ body {
   position: relative; }
   .header--add {
     background-image: linear-gradient(135deg, #5EFCE8 10%, #736EFE 100%); }
+  .header--archive {
+    background-image: linear-gradient(106.4deg, #ff68c0 11.1%, #6854f9 81.3%); }
   .header__text-box {
     position: absolute;
     top: 50%;
@@ -170,3 +172,55 @@ body {
 input[type=text] {
   border: 1px solid #c2cad4;
   padding: 1rem 10rem; }
+
+.thoughts__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.thought {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  border-radius: .75rem;
+  box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.1); }
+  .thought__content {
+    display: flex;
+    align-items: center;
+    padding: 1rem 3rem; }
+  .thought__icon {
+    border: 0.2rem solid #757575;
+    border-radius: 50rem;
+    padding: .01rem .7rem;
+    color: #757575;
+    font-size: 2rem;
+    margin-right: 2rem; }
+  .thought__text--description {
+    font-size: 1.3rem;
+    color: #757575; }
+  .thought__button-text {
+    display: inline-block;
+    position: absolute;
+    transform: translate(-50%, 30%); }
+  .thought__buttons {
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-transform: uppercase;
+    border-radius: .5rem;
+    position: relative; }
+    .thought__buttons--delete {
+      width: 5rem;
+      height: 3rem;
+      text-align: center;
+      border-radius: .5rem;
+      color: #757575;
+      border: 0.15rem solid #757575; }
+    .thought__buttons--share {
+      width: 5rem;
+      height: 3rem;
+      text-align: center;
+      border-radius: .5rem;
+      background-image: linear-gradient(to top right, #7934fa 50%, #459bdb 100%);
+      color: white; }

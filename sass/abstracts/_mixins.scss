@@ -22,3 +22,10 @@
         box-shadow: $black-shadow-diffused
     }
 }
+
+@mixin thought-button {
+    width: 5rem;
+    height: 3rem;
+    text-align: center;
+    border-radius: .5rem;
+}

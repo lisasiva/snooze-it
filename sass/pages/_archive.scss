@@ -1,0 +1,63 @@
+.thoughts__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.thought {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    border-radius: .75rem;
+    box-shadow: .25rem .25rem 1rem rgba($color-black, .1);
+   
+    
+    &__content {
+        display: flex;
+        align-items: center;
+        padding: 1rem 3rem;
+    }
+    
+    &__icon {
+        border: .2rem solid $color-gray-medium;
+        border-radius: 50rem;
+        padding: .01rem .7rem;
+        color: $color-gray-medium;
+        font-size: 2rem;
+        margin-right: 2rem;
+    }
+    
+    &__text--description {
+        font-size: 1.3rem;
+        color: $color-gray-medium;
+    }
+    
+    &__button-text {
+        display: inline-block;
+        position: absolute;
+        transform: translate(-50%, 30%)
+        
+    }
+    
+    &__buttons {
+        padding: 1.5rem 3rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-transform: uppercase;
+        border-radius: .5rem;
+       position: relative;
+        
+        &--delete {
+            @include thought-button;
+            color: $color-gray-medium;
+            border: .15rem solid $color-gray-medium;
+        }
+        
+        &--share {
+            @include thought-button;
+            background-image: $gradient-violet-blue-bright;
+            color: white;
+        }
+    }
+}
