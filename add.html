@@ -20,21 +20,21 @@
         </div>
         <div class="question__options-box">
             <div class="question__options-row">
-                <a href="#" class="emotion emotion--sad">
+                <a href="#question--topic" class="emotion emotion--sad" value="sad">
                     <i class="far fa-sad-tear emotion__icon"></i>
                     <p class="emotion__description">Sad</p>
                 </a>
-                <a href="#" class="emotion emotion--happy emotion--selected">
+                <a href="#question--topic" class="emotion emotion--happy" value="happy">
                     <i class="far fa-laugh emotion__icon"></i>
                     <p class="emotion__description">Happy</p>
                 </a>
             </div>
             <div class="question__options-row">
-                <a href="#" class="emotion emotion--stressed">
+                <a href="#question--topic" class="emotion emotion--stressed">
                     <i class="far fa-dizzy emotion__icon"></i>
                     <p class="emotion__description">Stressed</p>
                 </a>
-                <a href="#" class="emotion emotion--confused">
+                <a href="#question--topic" class="emotion emotion--confused">
                     <i class="far fa-meh-blank emotion__icon"></i>
                     <p class="emotion__description">Not sure</p>
                 </a>
@@ -42,30 +42,30 @@
         </div>
     </section>
     
-    <section class="question question--topic">
+    <section class="question question--topic" id="question--topic">
         <div class="question__text-box">
             <h3 class="question-title">What's on your mind?</h3>
         </div>
         <div class="question__options-box">
             <div class="question__options-row">
-                <a href="#" class="topic topic--finances">Finances</a>
-                <a href="#" class="topic topic--sex">Sex</a>
-                <a href="#" class="topic topic--family">Family</a>
+                <a href="#question--input" class="topic topic--finances" value="finances">Finances</a>
+                <a href="#question--input" class="topic topic--sex">Sex</a>
+                <a href="#question--input" class="topic topic--family">Family</a>
             </div>
             <div class="question__options-row">
-                <a href="#" class="topic topic--housework">Housework</a>
-                <a href="#" class="topic topic--career topic--selected">Career</a>
-                <a href="#" class="topic topic--future">Future</a>
+                <a href="#question--input" class="topic topic--housework">Housework</a>
+                <a href="#question--input" class="topic topic--career">Career</a>
+                <a href="#question--input" class="topic topic--future">Future</a>
             </div>
             <div class="question__options-row">
-                <a href="#" class="topic topic--kids">Kids</a>
-                <a href="#" class="topic topic--health">Health</a>
-                <a href="#" class="topic topic--unsure">Something else</a>
+                <a href="#question--input" class="topic topic--kids">Kids</a>
+                <a href="#question--input" class="topic topic--health">Health</a>
+                <a href="#question--input" class="topic topic--unsure">Something else</a>
             </div>
         </div>
     </section>
     
-    <section class="question question--input">
+    <section class="question question--input" id="question--input">
         <div class="question__text-box">
             <h3 class="question-title">Let's put this thought to bed.</h3>
         </div>
@@ -74,10 +74,15 @@
             <div class="input__box">
                 <input type="text" class="add-description" placeholder="some thought">
             </div>
-            <a href="#" class="btn--snooze">Snooze</a>
+            <a href="index.html" class="btn--snooze">Snooze</a>
         </div>
     </section>
     
-    <!--<script src="js/script.js"></script>-->
+    <!-- VENDOR SCRIPTS --> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- OWN SCRIPTS -->
+    <script src="js/scrolling.js"></script>
+    <script src="js/add.js"></script>
 </body>
 </html>

@@ -169,9 +169,12 @@ body {
   letter-spacing: .15rem;
   margin-bottom: 1rem; }
 
-input[type=text] {
+.add-description {
   border: 1px solid #c2cad4;
   padding: 1rem 10rem; }
+  .add-description:focus {
+    outline: none;
+    border: 1px solid #7934fa; }
 
 .thoughts__list {
   display: flex;
