@@ -4,7 +4,8 @@ let archiveController = (function() {
     let markups = [];
     let data = [];
     let DOM = {
-        thoughtsList: '.thoughts__list'
+        thoughtsList: '.thoughts__list',
+        emptyBox: '.empty-box'
     };
     
     let getStorage = function() {
@@ -12,8 +13,12 @@ let archiveController = (function() {
         const storageData = JSON.parse(localStorage.getItem('data'));
 
         // Save data from storage to array
-        if (storageData) {
+        if (storageData.length>0) {
             data = storageData;
+            
+        // If nothing is in storage, display empty state
+        } else {
+            document.querySelector(DOM.emptyBox).style.display = 'flex';
         }
         
         // Convert data to HTML markups, save to markups array
@@ -39,6 +44,8 @@ let archiveController = (function() {
                 iconClass = "fas fa-question";
             }
             
+            let mailToURL = `?subject=Can%20we%20chat%3F&body=Hey%%202CI%27m%20feeling%20${el.emotion}%20about%20${el.topic}%2E%20Can%20we%20chat%20about%20it%20this%20weekend%3F`;
+            
             return `<div class="thought" id="thought-${el.id}">
                 <div class="thought__content">
                     <div class="thought__icon"><i class="${iconClass}"></i></div>
@@ -49,7 +56,7 @@ let archiveController = (function() {
                 </div>
                 <div class="thought__buttons">
                     <div class="thought__buttons--delete"><div class="thought__button-text">Delete</div></div>
-                    <div class="thought__buttons--share"><div class="thought__button-text">Share</div></div>
+                    <div class="thought__buttons--share"><a class="thought__button-text" href="mailto:${mailToURL}">Share</a></div>
                 </div>
             </div>`;
         });
@@ -58,6 +65,7 @@ let archiveController = (function() {
         markups.forEach(el => {
             document.querySelector(DOM.thoughtsList).insertAdjacentHTML('beforeend', el);
         });
+        
     };
     
     let persistData= function() {
@@ -87,6 +95,12 @@ let archiveController = (function() {
             // Update data in localStorage
             persistData();
             console.log(data);
+            
+            // Show empty state if no more children
+            let numItems = document.querySelector(DOM.thoughtsList).children.length;
+            if (numItems === 0) {
+                document.querySelector(DOM.emptyBox).style.display = 'flex';
+            }
         }
     };
     

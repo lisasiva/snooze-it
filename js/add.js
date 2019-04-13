@@ -13,7 +13,7 @@ let dataController = (function() {
         this.description = des;
     };
     
-    const data = [];
+    let data = [];
     
     return {
         addThought: function(emotion, topic, des) {
@@ -36,6 +36,18 @@ let dataController = (function() {
         
         persistData: function() {
             localStorage.setItem('data', JSON.stringify(data));
+        },
+        
+        getData: function() {
+            // Get data from storage
+            const storageData = JSON.parse(localStorage.getItem('data'));
+
+            // Save data from storage to array
+            if (storageData) {
+                data = storageData;
+            } else {
+                console.log('No data in storage');
+            }
         }
         
     };
@@ -110,6 +122,9 @@ let controller = (function(dataCtrl, UICtrl) {
         
         // Add thought when snooze button is clicked
         document.querySelector(DOM.snoozeBtn).addEventListener('click', ctrlAddThought);
+        
+        // Get data from storage on load
+        window.addEventListener('load', dataCtrl.getData); 
         
     };
     

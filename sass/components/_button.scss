@@ -1,7 +1,7 @@
 .btn {
     &:link,
     &:visited {
-        display: block;
+        display: inline-block;
         text-align: center;
         text-decoration: none;
         padding: 1.5rem 7rem;
@@ -32,5 +32,6 @@
         font-size: 1.35rem;
         margin-top: 5rem;
         box-shadow: $violet-shadow-diffused;
+        @include button-press;
     }
 }

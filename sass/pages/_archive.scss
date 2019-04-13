@@ -52,6 +52,7 @@
             @include thought-button;
             color: $color-gray-medium;
             border: .15rem solid $color-gray-medium;
+            cursor: pointer;
         }
         
         &--share {
@@ -60,4 +61,49 @@
             color: white;
         }
     }
+    
+    &__button-text:link,
+    &__buton-text:visited {
+        color: white;
+        text-decoration: none;
+    }
+}
+
+.empty-box {
+    //display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 6rem;
+    display:none;
+    
+    &__text {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-top: 1.5rem;
+    }
+    
+    &__text--gradient {
+        @include gradient-text;        
+    }
+
+    &__button {
+        margin-top: 1.5rem;
+        &--back {
+            @include back-button;
+        }
+    }
+    
+    animation-name: moveInUp;
+    animation-duration: .75s;
+    animation-timing-function: ease-out;
+    
+}
+
+.empty-image {
+    width: 50%;
+}
+
+.thoughts__list:empty {
+    background: red;
 }
