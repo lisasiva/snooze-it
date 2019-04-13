@@ -83,8 +83,14 @@
     margin-bottom: 1rem;
 }
 
-input[type=text] {
+.add-description {
     border: 1px solid $color-gray-blue;
-    padding: 1rem 10rem;
+    padding: 1rem 10rem; 
     
+    &:focus {
+        outline: none;
+        border: 1px solid $color-violet-bright;
+    }
 }
+
+

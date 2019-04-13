@@ -13,9 +13,7 @@
     &-headline {
         font-size: 2.5rem;
         &--gradient {
-            background: linear-gradient(to right, $color-violet-dark 0%, $color-blue-dark 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;        
+            @include gradient-text;
         }
     }
     
@@ -27,8 +25,7 @@
     
     // Image on home screen
     &__image-box {
-        //background: url(../../img/blob-shape.svg) no-repeat top;
-        //background-size: contain;
+
         text-align: center;
         margin: 5rem auto;
     }
@@ -37,7 +34,17 @@
         width: 70%;        
     }
     
+    &__button-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
 }
 
+@media only screen and (min-width: 600px) {    
+    .home__image-box {
+        width: 50%
+    }  
 
-
+}
