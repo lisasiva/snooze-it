@@ -44,7 +44,7 @@ let archiveController = (function() {
                 iconClass = "fas fa-question";
             }
             
-            let mailToURL = `?subject=Can%20we%20chat%3F&body=Hey%%202CI%27m%20feeling%20${el.emotion}%20about%20${el.topic}%2E%20Can%20we%20chat%20about%20it%20this%20weekend%3F`;
+            let mailToURL = `?subject=Can%20we%20chat%3F&body=Hey%2C%20I%27m%20feeling%20${el.emotion}%20about%20${el.topic}%2E%20Can%20we%20chat%20about%20it%20this%20weekend%3F`;
             
             return `<div class="thought" id="thought-${el.id}">
                 <div class="thought__content">
