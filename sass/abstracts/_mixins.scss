@@ -29,3 +29,24 @@
     text-align: center;
     border-radius: .5rem;
 }
+
+@mixin gradient-text {
+    background: linear-gradient(to right, $color-violet-dark 0%, $color-blue-dark 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+
+@mixin back-button {
+    &:link,
+    &:visited {
+        @include option-default;
+        padding: .75rem;
+        border-radius: 1.5rem;
+    }
+    
+    &:active,
+    &:focus {
+        background-image: $gradient-violet-blue;
+        color: white;
+    }
+}
