@@ -1,6 +1,12 @@
 /* jslint esnext:true */
 
 //////////////////////////////////
+// API URL
+//////////////////////////////////
+
+const API = 'https://26t67eypug.execute-api.us-east-1.amazonaws.com/prod/';
+
+//////////////////////////////////
 // DATA CONTROLLER
 //////////////////////////////////
 
@@ -29,24 +35,37 @@ let dataController = (function() {
             
             data.push(newThought);
             
-            this.persistData();
+            this.postData();
             
             return newThought;
         },
         
-        persistData: function() {
-            localStorage.setItem('data', JSON.stringify(data));
+        postData: async function() {
+            let body = {thoughts: data};
+            try {
+                const result = await fetch(API, {
+                    method: 'POST',
+                    body: JSON.stringify(body),
+                    headers: {'Content-Type': 'application/json'}
+                });
+
+                console.log('Successfully submitted to Dynamo');
+            } catch(error) {
+                console.log(`Error writing to Dynamo: ${error}`);        
+            }
         },
         
-        getData: function() {
-            // Get data from storage
-            const storageData = JSON.parse(localStorage.getItem('data'));
+        getData: async function() {
+            // Get thoughts from DynamoDB
+            const result = await fetch(API);
+            const items = await result.json();
 
-            // Save data from storage to array
-            if (storageData) {
-                data = storageData;
+            // If Item is found, populate data array
+            if (Object.keys(items).length > 0) {
+                data = items.Item.thoughts;
+                console.log(data);
             } else {
-                console.log('No data in storage');
+                console.log(`Nothing in DynamoDB`);
             }
         }
         
@@ -64,8 +83,6 @@ let UIController = (function() {
         topic: '.topic',
         snoozeBtn: '.btn--snooze'
     };
-    
-    let markups = [];
     
     return{
         getDOMStrings: function() {
@@ -94,11 +111,9 @@ let controller = (function(dataCtrl, UICtrl) {
     let ctrlAddThought = function() {
         // Get input from UI
         let input = UICtrl.getInput();
-        console.log(input);
         
         // Create new Thought instantiation
         let newThought = dataCtrl.addThought(input.emotion, input.topic, input.description);
-        console.log(newThought);
         
     };
    

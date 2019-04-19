@@ -1,5 +1,7 @@
 /* jslint esnext: true */
 
+const API = 'https://26t67eypug.execute-api.us-east-1.amazonaws.com/prod';
+
 let archiveController = (function() {
     let markups = [];
     let data = [];
@@ -8,19 +10,24 @@ let archiveController = (function() {
         emptyBox: '.empty-box'
     };
     
-    let getStorage = function() {
-        // Get data from storage
-        const storageData = JSON.parse(localStorage.getItem('data'));
-
-        // Save data from storage to array
-        if (storageData.length>0) {
-            data = storageData;
-            
-        // If nothing is in storage, display empty state
-        } else {
-            document.querySelector(DOM.emptyBox).style.display = 'flex';
-        }
+    let getStorage = async function() {
+        // Get thoughts from DynamoDB
+        const result = await fetch(API);
+        const items = await result.json();
         
+        // If no Item is present, show empty state
+        if (Object.keys(items).length === 0) {
+            document.querySelector(DOM.emptyBox).style.display = 'flex';
+        
+        // If Item is present, but thoughts is empty, show empty state
+        } else if(items.Item.thoughts && items.Item.thoughts.length === 0) {
+            document.querySelector(DOM.emptyBox).style.display = 'flex';
+        
+        // Otherwise, populate data array with thoughts
+        } else {
+            data = items.Item.thoughts;
+        }
+    
         // Convert data to HTML markups, save to markups array
         markups = data.map(el => {
             let iconClass;
@@ -66,16 +73,27 @@ let archiveController = (function() {
             document.querySelector(DOM.thoughtsList).insertAdjacentHTML('beforeend', el);
         });
         
-    };
+    }
     
-    let persistData= function() {
-        localStorage.setItem('data', JSON.stringify(data));
+    let persistData = async function() {
+        let body = {thoughts: data};
+        try {
+            const result = await fetch(API, {
+                method: 'POST',
+                body: JSON.stringify(body),
+                headers: {'Content-Type': 'application/json'}
+            });
+
+            console.log('Successfully submitted to Dynamo');
+        } catch(error) {
+            console.log(`Error writing to Dynamo: ${error}`);        
+        }
     };
     
     let archDeleteThought = function(event) {
         let itemID = event.target.parentNode.parentNode.parentNode.id;
         let id = parseInt(itemID.split('-')[1]);
-        console.log(id);
+        console.log(itemID);
         if (itemID) {
             // Get element with id itemID
             let el = document.getElementById(itemID);
