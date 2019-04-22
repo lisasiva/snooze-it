@@ -60,7 +60,7 @@ export default class Thoughts {
             
             // If currently on add.html, redirect to index.html
             if(window.location.href === 'https://lisasiva.com/snooze-it/dist/add') {
-                window.location.href = 'https://lisasiva.com/snooze-it/dist/';    
+                window.location.href = 'https://lisasiva.com/snooze-it/dist/snoozed';    
             }
             
         } catch(error) {
