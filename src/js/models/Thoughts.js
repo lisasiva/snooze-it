@@ -58,7 +58,8 @@ export default class Thoughts {
 
             console.log('Successfully updated DynamoDB');
         } catch(error) {
-            console.log(`Error writing to Dynamo: ${error}`);        
+            console.log(`Error writing to Dynamo`);
+            console.log(`${error}`);
         }   
     }
     
