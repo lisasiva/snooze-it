@@ -57,6 +57,9 @@ export default class Thoughts {
             });
 
             console.log('Successfully updated DynamoDB');
+            // Redirect to index
+            window.location.href = 'https://lisasiva.com/snooze-it/dist/';
+            
         } catch(error) {
             console.log(`Error writing to Dynamo`);
             console.log(`${error}`);
