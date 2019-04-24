@@ -59,7 +59,7 @@ export default class Thoughts {
             console.log('Successfully updated DynamoDB');
             
             // If currently on add.html, redirect to index.html
-            if(window.location.href === 'https://lisasiva.com/snooze-it/dist/add') {
+            if(window.location.href.indexOf('add') !== -1) {
                 window.location.href = 'https://lisasiva.com/snooze-it/dist/snoozed';    
             }
             
