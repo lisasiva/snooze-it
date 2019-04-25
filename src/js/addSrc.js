@@ -17,6 +17,9 @@ const state = {};
 /////////////////////////////////////////
 
 const controlThought = () => {
+    // Change button copy
+    elementsAdd.snoozeBtn.innerHTML = 'Snoozing...';
+    
     // Get emotion, topic, description from UI
     state.input = thoughtsView.getInput();
     
@@ -62,7 +65,10 @@ const init = () => {
     });
     
     // Add thought when submit button is clicked
-    elementsAdd.snoozeBtn.addEventListener('click', controlThought);
+    elementsAdd.snoozeBtn.addEventListener('click', e => {
+        e.preventDefault();
+        controlThought();
+    });
     
 };
 

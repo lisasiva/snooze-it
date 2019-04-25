@@ -26,6 +26,10 @@ module.exports = {
             template: './src/archive.html',
             chunks: ['archive']
         }),
+        new HtmlWebpackPlugin({
+            filename: 'signup.html',
+            template: './src/signup.html'
+        }),
     ],
     module: {
         rules: [
