@@ -1,13 +1,16 @@
 /*jslint esnext: true*/
 
 import Thoughts from './models/Thoughts';
-import { elementsAdd } from './views/base';
+import User from './models/User';
+import { elementsAdd, pages } from './views/base';
 import * as thoughtsView from './views/thoughtsView';
 
 /*
-| * - User input (object)
-| * - Thoughts (class instantiation)
+| * - input (object)
+| * - thoughts (class instantiation)
 | * - - > data (array)
+| * - userPool (Cognito)
+| * - 
 | */
 
 const state = {};
@@ -30,7 +33,42 @@ const controlThought = () => {
     state.thoughts.addThought(ID, state.input.emotion, state.input.topic, state.input.description);
     
     // Update DynamoDB
-    state.thoughts.postThoughts();
+    state.thoughts.postThoughts(state.cognitoUser.username);
+};
+
+/////////////////////////////////////////
+// Get current user
+/////////////////////////////////////////
+
+const initUser = () => {
+    // Instantiate User class
+    state.user = new User();
+
+    // Create new userPool
+    state.userPool = state.user.createPool();
+
+    // Get current user
+    state.cognitoUser = state.userPool.getCurrentUser();
+
+    // If cognitoUser is not null, check session
+    if (state.cognitoUser !== null) {
+        initThoughts();
+    } else {
+        window.location.href = pages.login;
+    }
+};
+
+/////////////////////////////////////////
+// Get thoughts after user is retrieved
+/////////////////////////////////////////
+
+const initThoughts = async () => {
+    // Instantiate Thoughts class
+    state.thoughts = new Thoughts();
+
+    // Add existing thoughts from DynamoDB
+    state.thoughts.data = await state.thoughts.getThoughts(state.cognitoUser.username);
+    console.log(state.thoughts.data);   
 };
 
 /////////////////////////////////////////
@@ -40,15 +78,7 @@ const controlThought = () => {
 const init = () => {
     
     // Create new thoughts array on page load
-    window.addEventListener('load', async function() {
-        
-        // Create new Thoughts instantiation
-        state.thoughts = new Thoughts();
-        
-        // Add existing thoughts from DynamoDB
-        state.thoughts.data = await state.thoughts.getThoughts();
-        console.log(state.thoughts.data);
-    });
+    window.addEventListener('load', initUser);
     
     // Toggle emotion buttons on click
     elementsAdd.emotion.forEach(el => {
