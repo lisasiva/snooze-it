@@ -2,9 +2,42 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    transform: translateY(25%);
+    position: relative;
+    
+    // MOON ANIMATION
+    &__image-box {
+        animation-name: moveInUp;
+        animation-duration: .75s;
+        animation-timing-function: ease-out;    
+    }
+    
+    // TEXT AND BUTTON
+    &__text {
+        text-align: center;
+        width: 50%;
+        margin-bottom: 1.5rem;
+        
+        animation-name: fadeIn;
+        animation-duration: .5s;
+        animation-timing-function: ease-out;  
+        
+        &--heading {
+            @include gradient-text;
+            font-size: 2.5rem;
+            margin-bottom:.5rem;
+        }
+        
+        &--paragraph {
+            font-size: 1.5rem;
+            letter-spacing: .03rem;
+        }
+        
+    }
     
     &__option--back {
         @include back-button;
+        display: block;
     }
 }
+

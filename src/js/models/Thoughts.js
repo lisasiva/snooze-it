@@ -1,6 +1,7 @@
 /*jslint esnext: true */
 
-const API = 'https://26t67eypug.execute-api.us-east-1.amazonaws.com/prod';
+const API = 'https://26t67eypug.execute-api.us-east-1.amazonaws.com/prod?';
+import { pages } from '../views/base';
 
 export default class Thoughts {
     constructor() {
@@ -46,21 +47,39 @@ export default class Thoughts {
         }
     }
     
-    // Send POST request to Lambda function
-    async postThoughts() {
-        let body = {thoughts: this.data};
+    // Send POST request to API Gateway
+    async postThoughts(email) {
+        // Formulate the body of the request
+        let body = {
+            userId: email,
+            thoughts: this.data
+        };
+        
+        console.log(JSON.stringify(body));
         try {
-            let result = await fetch(API, {
-                method: 'POST',
-                body: JSON.stringify(body),
-                headers: {'Content-Type': 'application/json'}
+            let result = fetch(API, {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
             });
-
-            console.log('Successfully updated DynamoDB');
+            
+            let response = await result;
+            
+            // Only if response status is okay, log success message
+            if(response.status === 200) {
+                console.log('Successfully posted user to DynamoDB');
+                
+            // Else, something went wrong with the API call
+            } else {
+                console.log(`Error calling API: ${response.status}`);
+            }
             
             // If currently on add.html, redirect to index.html
             if(window.location.href.indexOf('add') !== -1) {
-                window.location.href = 'https://lisasiva.com/snooze-it/dist/snoozed';    
+                window.location.href = pages.snoozed;    
             }
             
         } catch(error) {
@@ -70,17 +89,19 @@ export default class Thoughts {
     }
     
     // Send GET request to Lambda function
-    async getThoughts() {
+    async getThoughts(userId) {
         // Get thoughts from DynamoDB
-        let result = await fetch(API);
+        let result = await fetch(`${API}userId=${userId}`);
         let items = await result.json();
 
         // If Item is found, populate data array
         if (Object.keys(items).length > 0) {
+            // Returns an array of objects
             return items.Item.thoughts;
         } else {
             console.log(`Nothing in DynamoDB`);
             return [];
         }
     }
+    
 }

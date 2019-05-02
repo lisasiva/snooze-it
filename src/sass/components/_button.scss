@@ -34,4 +34,9 @@
         box-shadow: $violet-shadow-diffused;
         @include button-press;
     }
+    
+    &--signout {
+        color: $color-gray-medium;
+    }
+    
 }

@@ -1,7 +1,8 @@
 /* jslint esnext: true */
 
+import User from './models/User';
 import Thoughts from './models/Thoughts';
-import { elementsArchive } from './views/base';
+import { elementsArchive, pages } from './views/base';
 import * as thoughtsView from './views/thoughtsView';
 
 /*
@@ -14,17 +15,40 @@ import * as thoughtsView from './views/thoughtsView';
 const state = {};
 
 /////////////////////////////////////////
+// Get current user
+/////////////////////////////////////////
+
+const initUser = () => {
+    // Instantiate User class
+    state.user = new User();
+
+    // Create new userPool
+    state.userPool = state.user.createPool();
+
+    // Get current user
+    state.cognitoUser = state.userPool.getCurrentUser();
+
+    // If cognitoUser is not null, check session
+    if (state.cognitoUser !== null) {
+        renderArchive();
+    } else {
+        window.location.href = pages.login;
+    }
+};
+
+/////////////////////////////////////////
 // Get and render thoughts
 /////////////////////////////////////////
 
 const renderArchive = async () => {
+    
     // Instantiate Thoughts class
     state.thoughts = new Thoughts();
     state.markups = [];
     
     try {
         // Get thoughts from DynamoDB
-        state.thoughts.data = await state.thoughts.getThoughts();
+        state.thoughts.data = await state.thoughts.getThoughts(state.cognitoUser.username);
         //console.log(state.thoughts.data);
         
         // If there are none, show empty state
@@ -65,7 +89,7 @@ const removeThought = (event) => {
         state.thoughts.deleteThought(id);
         
         // Update DynamoDB
-        state.thoughts.postThoughts();
+        state.thoughts.postThoughts(state.cognitoUser.username);
         
         // Display empty state if needed
         if(elementsArchive.thoughtsList.children.length === 0) {
@@ -79,8 +103,16 @@ const removeThought = (event) => {
 /////////////////////////////////////////
 
 const init = () => {
-    window.addEventListener('load', renderArchive);
+    // Get user on page load
+    window.addEventListener('load', initUser);
+    
+    // Update data array and DynamoDB when thought is deleted
     elementsArchive.thoughtsList.addEventListener('click', removeThought);
+    
+    // Send user back to home on button click
+    elementsArchive.btnBack.addEventListener('click', () => {
+        elementsArchive.btnBack.setAttribute('href', pages.home);
+    });
 };
 
 init();

@@ -39,7 +39,10 @@
 @mixin back-button {
     &:link,
     &:visited {
-        @include option-default;
+        text-decoration: none;
+        color: $color-gray-medium;
+        border: 0.5px solid $color-gray-medium;
+        box-shadow: 0.25rem 0.25rem 0.5rem rgba($color-black, 0.1);
         padding: .75rem;
         border-radius: 1.5rem;
     }
