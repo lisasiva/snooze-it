@@ -1,5 +1,5 @@
 /*jslint esnext: true*/
-const baseURL = 'https://lisasiva.com/snooze-it/';
+const baseURL = 'https://app.heyhon.co/';
 const endURL = '';
 
 export const pages = {
