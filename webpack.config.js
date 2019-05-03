@@ -13,7 +13,7 @@ module.exports = {
         snoozed: ['babel-polyfill', './src/js/snoozedSrc.js']
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'docs'),
         filename: "js/[name].bundle.js"
     },
     devServer: {

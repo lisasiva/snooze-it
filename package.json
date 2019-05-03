@@ -4,7 +4,7 @@
   "description": "An issue queue for people in relationships",
   "main": "index.html",
   "scripts": {
-    "compile:sass": "node-sass src/sass/main.scss dist/css/style.css -w",
+    "compile:sass": "node-sass src/sass/main.scss docs/css/style.css -w",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development --open"
