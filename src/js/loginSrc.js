@@ -1,7 +1,7 @@
 /*jslint esnext: true*/
 
 import { cognito } from './config';
-import { elementsLogin } from './views/base';
+import { elementsLogin, pages } from './views/base';
 import * as loginView from './views/loginView';
 import User from './models/User';
 
@@ -39,7 +39,7 @@ const login = () => {
         onSuccess: function(result) {
             state.accessToken = result.getAccessToken().getJwtToken();
             console.log(state.accessToken);
-            window.location.href = 'http://localhost:8080/';    
+            window.location.href = pages.home;    
         }    
     });
 };
