@@ -17,7 +17,7 @@ module.exports = {
         filename: "js/[name].bundle.js"
     },
     devServer: {
-        contentBase: './dist'
+        contentBase: './docs'
     },
     plugins: [
         new HtmlWebpackPlugin({
