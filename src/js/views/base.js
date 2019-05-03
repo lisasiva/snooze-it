@@ -1,6 +1,6 @@
 /*jslint esnext: true*/
-const baseURL = 'http://localhost:8080/';
-const endURL = '.html';
+const baseURL = 'https://lisasiva.com/snooze-it/';
+const endURL = '';
 
 export const pages = {
     snoozed: `${baseURL}snoozed${endURL}`,
