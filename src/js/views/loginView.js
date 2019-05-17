@@ -3,6 +3,14 @@
 import { elementsLogin } from './base';
 
 /////////////////////////////////////////
+// Displays 'already logged in' message
+/////////////////////////////////////////
+
+export const renderRedirectMessage = () => {
+    elementsLogin.confirmation.innerHTML = `You're already logged in! Hang on a sec...`;
+};
+
+/////////////////////////////////////////
 // Reading user input from login.html
 /////////////////////////////////////////
 

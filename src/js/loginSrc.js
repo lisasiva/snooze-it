@@ -10,6 +10,33 @@ const AmazonCognitoIdentity = require('amazon-cognito-identity-js');
 const state = {};
 
 /////////////////////////////////////////
+// Check user state on page load
+/////////////////////////////////////////
+
+const checkUserState = () => {
+    // Instantiate User class
+    state.user = new User();
+    
+    // Get user pool
+    state.userPool = state.user.createPool();
+    
+    // Get current user
+    state.cognitoUser = state.userPool.getCurrentUser();
+    
+    // If user is already logged in...
+    if (state.cognitoUser !== null) {
+        
+        // Let them know
+        loginView.renderRedirectMessage();
+        
+        // And redirect them to home page after 1.5s
+        setTimeout(() => {
+            window.location.href = pages.home;
+        }, 1500);
+    }
+};
+
+/////////////////////////////////////////
 // login callback
 /////////////////////////////////////////
 
@@ -49,6 +76,7 @@ const login = () => {
 /////////////////////////////////////////
 
 const init = () => {
+    window.addEventListener('load', checkUserState);
     elementsLogin.loginBtn.addEventListener('click', (event) => {
         // Prevent reload on button click
         event.preventDefault();

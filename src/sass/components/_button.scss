@@ -11,14 +11,28 @@
     }
     
     &--gradient {
+        @include button-press;
+        
         background-image: $gradient-violet-blue;
         color: $color-white;
-        @include button-press;
+    }
+    
+    &--gradient-register {
+        background-image: $gradient-violet;
+        color: $color-white;
+        transform: translateY(-.3rem);
+        box-shadow: $violet-shadow-diffused;
+
+        &:active {
+            transform: translateY(-.1rem);
+            box-shadow: $violet-shadow-darker; 
+        } 
     }
     
     &--shadow {
-        color: $color-gray-dark;
         @include button-press;
+        
+        color: $color-gray-dark;
     }
     
     &--snooze {
