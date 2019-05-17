@@ -75,9 +75,10 @@ const removeThought = (event) => {
     let itemID, id;
     
     // If delete or share button was clicked, get id of clicked thought
-    if (event.target.className === 'thought__button-text' ||
-        event.target.className === 'thought__buttons--delete' ||
-        event.target.className === 'thought__buttons--share') {
+    if (event.target.className === 'thought__button-text'
+        || event.target.className === 'thought__buttons--delete'
+        || event.target.className === 'thought__buttons--share'
+    ) {
         itemID = event.target.parentNode.parentNode.parentNode.id
         id = parseInt(itemID.split('-')[1]);    
     }
