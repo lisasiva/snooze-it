@@ -26,12 +26,28 @@ const checkUserState = () => {
     // Get current user
     state.cognitoUser = state.userPool.getCurrentUser();
     
-    // If cognitouser is not null, get session
+    // If cognitouser is not null...
     if(state.cognitoUser !== null) {
+        
+        // Check that session is valid
         state.sessionValid = state.user.checkSession(state.cognitoUser);
+        
+        // Get user's first name and display login confirmation
+        state.cognitoUser.getUserAttributes((err, result) => {
+           if (err) {
+               console.log(err.message);
+           } else {
+               state.firstName = result[2].Value;
+               indexView.displayName(state.firstName);
+           }
+        });
+        
+        // Point buttons to add and archive screens 
         indexView.setButtons();
+        
     } else {
-        // Otherwise, change buttons to login/register
+        
+        // Otherwise, change buttons to register/login
         indexView.updateButtons();
     }
 

@@ -57,6 +57,7 @@ export default class User {
     
     // Log user's email in DynamoDB - called on register
     async postUser(email) {
+        
         // Formulate the body of the request
         let body = {
             userId: email,
@@ -90,6 +91,7 @@ export default class User {
         }   
     }
     
+    // Check if user session is valid
     checkSession(user) {
         let result = user.getSession(function(err, session) {
             if(err) {

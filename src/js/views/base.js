@@ -1,6 +1,9 @@
 /*jslint esnext: true*/
-const baseURL = 'https://app.heyhon.co/';
-const endURL = '';
+/*const baseURL = 'https://app.heyhon.co/';
+const endURL = '';*/
+
+const baseURL = 'http://localhost:8080/';
+const endURL = '.html';
 
 export const pages = {
     snoozed: `${baseURL}snoozed${endURL}`,
@@ -8,19 +11,19 @@ export const pages = {
     login: `${baseURL}login${endURL}`,
     add: `${baseURL}add${endURL}`,
     home: `${baseURL}`,
-    archive: `${baseURL}archive${endURL}`
+    archive: `${baseURL}archive${endURL}`,
 };
 
 export const elementsAdd = {
     emotion: document.querySelectorAll('.emotion'),
     topic: document.querySelectorAll('.topic'),
-    snoozeBtn: document.querySelector('.btn--snooze')
+    snoozeBtn: document.querySelector('.btn--snooze'),
 };
 
 export const elementsArchive = {
     thoughtsList: document.querySelector('.thoughts__list'),
     emptyBox: document.querySelector('.empty-box'),
-    btnBack: document.querySelector('.empty-box__button--back')
+    btnBack: document.querySelector('.empty-box__button--back'),
 };
 
 export const elementsRegister = {
@@ -28,22 +31,24 @@ export const elementsRegister = {
     inputName: document.getElementById('name'),
     inputEmail: document.getElementById('email'),
     inputPassword: document.getElementById('password'),
-    confirmation: document.querySelector('.form__confirmation')
+    confirmation: document.querySelector('.form__confirmation'),
     
 };
 
 export const elementsLogin = {
     loginBtn: document.getElementById('btn-login'), 
     emailInput: document.getElementById('email'),
-    passwordInput: document.getElementById('password')
+    passwordInput: document.getElementById('password'),
+    confirmation: document.querySelector('.form__confirmation'),
 };
 
 export const elementsHome = {
+    subHeadline: document.querySelector('.home-subheadline'),
     btnGradient: document.querySelector('.btn--gradient'),
     btnShadow: document.querySelector('.btn--shadow'),
-    btnSignOut: document.querySelector('.btn--signout')
+    btnSignOut: document.querySelector('.btn--signout'),
 };
 
 export const elementsSnoozed = {
-    btnBack: document.querySelector('.snoozed__option--back')
+    btnBack: document.querySelector('.snoozed__option--back'),
 };
