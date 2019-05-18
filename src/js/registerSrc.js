@@ -31,13 +31,13 @@ const signUp = () => {
     // Add user to pool
     state.userPool.signUp(state.input.email, state.input.password, state.user.attributes, null, function(err, result) {
         if (err) {
-            alert(`There was an error signing up user: ${err.message}`);
+            alert(err.message);
         } else if (result) {
             // Save result to state
             state.cognitoUser = result.user;
             
             // Display confirmation message to user
-            elementsRegister.confirmation.innerHTML = `Welcome, ${state.cognitoUser.username}!`;
+            elementsRegister.confirmation.innerHTML = `Thanks, ${state.input.name}! Redirecting you to login...`;
             
             // Redirect user to login page
             setTimeout(() => {

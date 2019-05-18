@@ -68,6 +68,13 @@ body {
     transform: translateY(-0.1rem);
     box-shadow: 0.25rem 0.5rem 1rem rgba(0, 0, 0, 0.2); }
 
+.btn-submit-topic {
+  margin-top: 2rem; }
+  .btn-submit-topic:link, .btn-submit-topic:visited {
+    color: #7934fa; }
+  .btn-submit-topic .btn__down-arrow {
+    margin-left: .5rem; }
+
 .btn--snooze {
   display: block;
   padding: 2rem 14rem;
@@ -217,9 +224,7 @@ body {
 .question__options-box {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto; }
+  align-items: center; }
 
 .question__options-row {
   display: flex;
@@ -258,13 +263,12 @@ body {
   box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
   padding: .25rem 2rem;
   border-radius: 10rem;
-  margin: 2rem 2rem 0 0; }
+  margin: 2rem 2rem 0 0;
+  font-size: 1.5rem; }
   .topic--selected {
     color: #fff;
     background-image: linear-gradient(to right, #441d8c 0%, #546ead 100%);
     box-shadow: 0.5rem 1rem 2.25rem rgba(0, 0, 0, 0.15); }
-  .topic:link {
-    font-size: 1.5rem; }
 
 .input__prompt {
   color: #c7c7c7;
@@ -275,7 +279,9 @@ body {
 
 .add-description {
   border: 1px solid #c2cad4;
-  padding: 1rem 10rem; }
+  border-radius: 3px;
+  width: 30rem;
+  padding: 1.5rem 0rem 1.5rem 1.25rem; }
   .add-description:focus {
     outline: none;
     border: 1px solid #7934fa; }
@@ -290,30 +296,39 @@ body {
   flex-direction: column;
   margin-top: 2rem;
   border-radius: .75rem;
-  box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.1); }
+  box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.1);
+  width: 30rem;
+  height: auto; }
   .thought__content {
     display: flex;
     align-items: center;
     padding: 1rem 3rem; }
   .thought__icon {
     border: 0.2rem solid #757575;
-    border-radius: 50rem;
+    border-radius: 50%;
     padding: .01rem .7rem;
     color: #757575;
     font-size: 2rem;
     margin-right: 2rem; }
+  .thought__text--tags {
+    color: #7934fa;
+    text-transform: uppercase;
+    font-size: .5rem; }
   .thought__text--description {
-    font-size: 1.3rem;
-    color: #757575; }
+    font-size: 1.5rem;
+    color: #757575;
+    letter-spacing: .01em; }
+  .thought__text--emotion {
+    font-size: 1.1rem;
+    color: #c7c7c7; }
   .thought__button-text {
     display: inline-block;
     position: absolute;
     transform: translate(-50%, 30%); }
   .thought__buttons {
-    padding: 1.5rem 3rem;
+    padding: 1.5rem 3rem 2rem 5.8rem;
     display: flex;
     justify-content: space-around;
-    align-items: center;
     text-transform: uppercase;
     border-radius: .5rem;
     position: relative; }
@@ -381,11 +396,13 @@ body {
   .snoozed__image-box {
     animation-name: moveInUp;
     animation-duration: .75s;
-    animation-timing-function: ease-out; }
+    animation-timing-function: ease-out;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid transparent; }
   .snoozed__text {
     text-align: center;
     width: 50%;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     animation-name: fadeIn;
     animation-duration: .5s;
     animation-timing-function: ease-out; }

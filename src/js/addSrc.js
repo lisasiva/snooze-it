@@ -26,6 +26,8 @@ const controlThought = () => {
     // Get emotion, topic, description from UI
     state.input = thoughtsView.getInput();
     
+    console.log(state.input.topic);
+    
     // Create a unique ID
     let ID = state.thoughts.createID();
     

@@ -35,6 +35,17 @@
         color: $color-gray-dark;
     }
     
+    &-submit-topic {
+        margin-top: 2rem;
+        
+        &:link,
+        &:visited {
+            color: $color-violet-bright;
+        }
+        
+        .btn__down-arrow { margin-left: .5rem; }
+    }
+    
     &--snooze {
         display: block;
         padding: 2rem 14rem;

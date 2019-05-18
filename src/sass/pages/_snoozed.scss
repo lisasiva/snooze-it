@@ -9,14 +9,16 @@
     &__image-box {
         animation-name: moveInUp;
         animation-duration: .75s;
-        animation-timing-function: ease-out;    
+        animation-timing-function: ease-out;  
+        margin-bottom: 2.5rem;
+        border-bottom: 1px solid transparent;
     }
     
     // TEXT AND BUTTON
     &__text {
         text-align: center;
         width: 50%;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
         
         animation-name: fadeIn;
         animation-duration: .5s;
