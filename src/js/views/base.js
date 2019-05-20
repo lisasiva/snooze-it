@@ -2,9 +2,6 @@
 const baseURL = 'https://app.heyhon.co/';
 const endURL = '';
 
-//const baseURL = 'http://localhost:8080/';
-//const endURL = '.html';
-
 export const pages = {
     snoozed: `${baseURL}snoozed${endURL}`,
     register: `${baseURL}register${endURL}`,
