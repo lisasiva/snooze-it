@@ -45,7 +45,6 @@ export const elementsLogin = {
 export const elementsHome = {
     headlineGray: document.querySelector('.home-headline--gray'),
     headlineGradient: document.querySelector('.home-headline--gradient'),
-    subHeadline: document.querySelector('.home-subheadline'),
     btnGradient: document.querySelector('.btn--gradient'),
     btnShadow: document.querySelector('.btn--shadow'),
     btnSignOut: document.querySelector('.btn--signout'),

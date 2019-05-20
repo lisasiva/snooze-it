@@ -185,7 +185,8 @@ body {
 .home {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%); }
+  transform: translateY(-50%);
+  background-size: 100%; }
   @media (min-width: 56.25em) {
     .home {
       left: 50%;

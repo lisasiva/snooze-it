@@ -24,14 +24,8 @@ export const setButtons = () => {
     elementsHome.btnShadow.setAttribute('href', pages.archive);
 };
 
-// Changes subheadline to 'You are logged in as TK'
-/*export const displayName = (name) => {
-    elementsHome.subHeadline.style.display = 'block';
-    elementsHome.subHeadline.innerHTML = `(You're logged in as ${name})`;
-};*/
-
 // Changes headline to 'TK's thoughts'
 export const displayName = (name) => {
-    elementsHome.headlineGray.innerHTML = `${name}'s&nbsp;`;
+    elementsHome.headlineGray.innerHTML = `${name}'s`;
     elementsHome.headlineGradient.innerHTML = `thoughts`;
-}
+};

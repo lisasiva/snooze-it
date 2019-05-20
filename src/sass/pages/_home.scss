@@ -3,6 +3,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    background-size: 100%;
     
     @include for-tablet-landscape-up {
         left: 50%;
@@ -27,6 +28,9 @@
             margin: 2rem auto;
         }
         
+        @include for-phones-small-only {
+            
+        }
     }
     
     &-headline {
