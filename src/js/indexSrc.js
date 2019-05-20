@@ -18,9 +18,6 @@ const state = {};
 
 const checkUserState = () => {
     
-    //TESTING ONLY
-    elementsHome.btnSignOut.style.display = 'none';
-    
     // Instantiate User class
     state.user = new User();
     
