@@ -40,12 +40,12 @@ body {
   padding: 1.5rem 7rem;
   border-radius: 1rem;
   font-size: 1.35rem;
-  margin-bottom: 1.35rem; }
-  @media (min-width: 46.875em) and (min-height: 50em) and (orientation: portrait) {
-    .btn:link, .btn:visited {
-      padding: 2.5rem 8.5rem;
-      font-size: 2.2rem;
-      margin-bottom: 2.2rem; } }
+  margin-bottom: 1.35rem;
+  /*@include for-tablet-portrait {
+            padding: 2.5rem 8.5rem;
+            font-size: 2.2rem;
+            margin-bottom: 2.2rem;
+        }*/ }
 
 .btn--gradient {
   transform: translateY(-0.3rem);
@@ -188,14 +188,13 @@ body {
   @media (min-width: 56.25em) {
     .home {
       left: 50%;
-      transform: translate(-50%, -60%);
-      height: 80vh; } }
+      transform: translate(-50%, -50%); } }
   .home__text-box {
     margin: 3rem 0rem 5rem 0rem;
-    text-align: center; }
-    @media (min-width: 46.875em) and (min-height: 50em) and (orientation: portrait) {
-      .home__text-box {
-        margin: 8rem 0rem; } }
+    text-align: center;
+    /*@include for-tablet-portrait {
+            margin: 8rem 0rem;
+        }*/ }
     @media (min-width: 56.25em) {
       .home__text-box {
         margin: 2rem auto; } }
@@ -214,20 +213,20 @@ body {
     font-weight: 400;
     color: #c2cad4;
     display: none; }
-    @media (min-width: 37.5em) {
+    @media (min-width: 56.25em) {
       .home-subheadline {
         font-size: 2rem;
         font-weight: 300; } }
   .home__image-box {
     text-align: center;
-    margin: 5rem auto; }
+    margin: 5rem auto;
+    /*@include for-tablet-portrait {
+            width: 60%;
+            margin: 0rem auto 8.5rem auto;
+        }*/ }
     @media (min-width: 37.5em) {
       .home__image-box {
         width: 50%; } }
-    @media (min-width: 46.875em) and (min-height: 50em) and (orientation: portrait) {
-      .home__image-box {
-        width: 60%;
-        margin: 0rem auto 8.5rem auto; } }
     @media (min-width: 56.25em) {
       .home__image-box {
         width: 60%; } }
@@ -242,10 +241,10 @@ body {
   height: 80vh;
   display: flex;
   flex-direction: column;
-  align-items: center; }
-  @media (min-width: 46.875em) and (min-height: 50em) and (orientation: portrait) {
-    .question {
-      transform: translateY(15%); } }
+  align-items: center;
+  /*@include for-tablet-portrait {
+        transform: translateY(15%);
+    }*/ }
   .question__text-box {
     width: 60%;
     text-align: center;

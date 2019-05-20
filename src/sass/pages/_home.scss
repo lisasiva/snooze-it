@@ -6,8 +6,7 @@
     
     @include for-tablet-landscape-up {
         left: 50%;
-        transform: translate(-50%, -60%);
-        height: 80vh;
+        transform: translate(-50%,-50%);
     }
     
     // Text on home screen
@@ -16,9 +15,9 @@
         margin: 3rem 0rem 5rem 0rem;
         text-align: center;
         
-        @include for-tablet-portrait {
+        /*@include for-tablet-portrait {
             margin: 8rem 0rem;
-        }
+        }*/
         
         @include for-tablet-landscape-up {
             margin: 2rem auto;
@@ -45,10 +44,11 @@
         color: $color-gray-blue;
         display: none;
         
-        @include for-phones-large-up {
+        @include for-tablet-landscape-up {
             font-size: 2rem;
             font-weight: 300;
         }
+        
     }
     
     // Image on home screen
@@ -60,10 +60,10 @@
             width: 50%;
         }
         
-        @include for-tablet-portrait {
+        /*@include for-tablet-portrait {
             width: 60%;
             margin: 0rem auto 8.5rem auto;
-        }
+        }*/
         
         @include for-tablet-landscape-up {
             width: 60%;
