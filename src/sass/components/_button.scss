@@ -72,7 +72,11 @@
     }
     
     &--signout {
-        color: $color-gray-medium;
+        &:link,
+        &:visited {
+            color: $color-gray-medium;
+            font-size: 1.15rem;
+        }
     }
     
 }

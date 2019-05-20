@@ -100,8 +100,9 @@ body {
     .btn--snooze {
       padding: 2rem 12rem; } }
 
-.btn--signout {
-  color: #757575; }
+.btn--signout:link, .btn--signout:visited {
+  color: #757575;
+  font-size: 1.15rem; }
 
 .form__container {
   position: relative;
@@ -189,6 +190,9 @@ body {
     .home {
       left: 50%;
       transform: translate(-50%, -50%); } }
+  @media (max-width: 20em) {
+    .home {
+      padding-top: 2.5rem; } }
   .home__text-box {
     margin: 3rem 0rem 5rem 0rem;
     text-align: center;
@@ -206,7 +210,7 @@ body {
       -webkit-text-fill-color: transparent; }
     @media (min-width: 56.25em) {
       .home-headline {
-        font-size: 4rem;
+        font-size: 3.6rem;
         font-weight: 400; } }
   .home-subheadline {
     font-size: 1.6rem;

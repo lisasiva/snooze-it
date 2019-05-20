@@ -9,6 +9,10 @@
         transform: translate(-50%,-50%);
     }
     
+    @include for-phones-small-only {
+        padding-top: 2.5rem;
+    }
+    
     // Text on home screen
     &__text-box {
         //left: 50%;
@@ -33,7 +37,7 @@
         }
         
         @include for-tablet-landscape-up {
-            font-size: 4rem;
+            font-size: 3.6rem;
             font-weight: 400;
         }
     }
