@@ -12,6 +12,10 @@
     box-shadow: .25rem .25rem 1rem rgba($color-black, .1);
     width: 30rem;
     height: auto;
+    
+    @include for-phones-small-only {
+        width: 28rem;
+    }
    
     
     &__content {

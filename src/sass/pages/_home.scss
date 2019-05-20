@@ -1,19 +1,39 @@
 // Home screen header
 .home {
-    //height: 100vh;
+    
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    @include for-phones-medium-up {
+        transform: translateY(-55%);
+    }
+    
+    @include for-tablet-portrait {
+        //transform: translateY(-60%);
+    }
     
     // Text on home screen
     &__text-box {
-        left: 50%;
+        //left: 50%;
         margin: 2rem 0rem 5rem 0rem;
         text-align: center;
+        
+        @include for-tablet-portrait {
+            margin: 8rem 0rem;
+        }
         
     }
     
     &-headline {
         font-size: 2.5rem;
+        
         &--gradient {
             @include gradient-text;
+        }
+        
+        @include for-phones-large-up {
+            font-size: 4.5rem;
         }
     }
     
@@ -22,13 +42,26 @@
         font-weight: 400;
         color: $color-gray-blue;
         display: none;
+        
+        @include for-phones-large-up {
+            font-size: 2.8rem;
+            font-weight: 300;
+        }
     }
     
     // Image on home screen
     &__image-box {
-
         text-align: center;
         margin: 5rem auto;
+        
+        @include for-phones-large-up {
+            width: 50%;
+        }
+        
+        @include for-tablet-portrait {
+            width: 60%;
+            margin: 0rem auto 8.5rem auto;
+        }
     }
     
     .image-main {
@@ -39,13 +72,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        
     }
     
-}
-
-@media only screen and (min-width: 600px) {    
-    .home__image-box {
-        width: 50%
-    }  
-
 }

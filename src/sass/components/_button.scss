@@ -8,6 +8,12 @@
         border-radius: 1rem;
         font-size: 1.35rem;
         margin-bottom: 1.35rem;
+        
+        @include for-tablet-portrait {
+            padding: 2.5rem 8.5rem;
+            font-size: 2.2rem;
+            margin-bottom: 2.2rem;
+        }
     }
     
     &--gradient {
@@ -36,7 +42,7 @@
     }
     
     &-submit-topic {
-        margin-top: 2rem;
+        margin: 2rem 0rem 6rem 0rem;
         
         &:link,
         &:visited {
@@ -47,6 +53,8 @@
     }
     
     &--snooze {
+        @include button-press;
+        
         display: block;
         padding: 2rem 14rem;
         border-radius: 10rem;
@@ -57,7 +65,10 @@
         font-size: 1.35rem;
         margin-top: 5rem;
         box-shadow: $violet-shadow-diffused;
-        @include button-press;
+        
+        @include for-phones-small-only {
+            padding: 2rem 12rem;
+        }
     }
     
     &--signout {
