@@ -3,7 +3,6 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-size: 100%;
     
     @include for-tablet-landscape-up {
         left: 50%;
@@ -37,7 +36,12 @@
         font-size: 2.5rem;
         
         &--gradient {
-            @include gradient-text;
+            //@include gradient-text;
+            background: $gradient-violet-blue-bright;
+            background-size: 100% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; 
+    
         }
         
         @include for-tablet-landscape-up {
