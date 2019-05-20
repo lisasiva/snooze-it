@@ -10,7 +10,7 @@
     }
     
     @include for-phones-small-only {
-        padding-top: 2.5rem;
+        padding-top: 4rem;
     }
     
     // Text on home screen
@@ -27,20 +27,14 @@
             margin: 2rem auto;
         }
         
-        @include for-phones-small-only {
-            
-        }
     }
     
     &-headline {
         font-size: 2.5rem;
         
         &--gradient {
-            //@include gradient-text;
-            background: $gradient-violet-blue-bright;
-            background-size: 100% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent; 
+            @include gradient-text;
+            //background: $gradient-violet-blue-bright;; 
     
         }
         
