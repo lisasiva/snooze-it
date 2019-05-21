@@ -202,14 +202,12 @@ body {
       .home__text-box {
         margin: 2rem auto; } }
   .home-headline {
-    font-size: 2.5rem;
-    color: orangered;
-    margin-top: -1.5rem; }
+    font-size: 2.5rem; }
     .home-headline--gradient {
       background: linear-gradient(to right, #441d8c 0%, #546ead 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      outline: 2px solid #fff; }
+      outline: 3px solid orangered; }
     @media (min-width: 56.25em) {
       .home-headline {
         font-size: 3.6rem;
