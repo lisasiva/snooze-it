@@ -207,7 +207,8 @@ body {
     .home-headline--gradient {
       background: linear-gradient(to right, #441d8c 0%, #546ead 100%);
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent; }
+      -webkit-text-fill-color: transparent;
+      outline: 2px solid #fff; }
     @media (min-width: 56.25em) {
       .home-headline {
         font-size: 3.6rem;

@@ -31,6 +31,7 @@
         
         &--gradient {
             @include gradient-text;
+            outline: 2px solid $color-white;
         }
         
         @include for-tablet-landscape-up {
