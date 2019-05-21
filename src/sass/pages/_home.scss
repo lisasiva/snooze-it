@@ -29,7 +29,8 @@
         
         &--gradient {
             @include gradient-text;
-            //background: $gradient-violet-blue-bright; 
+            
+            background-position-y: 4px;
     
         }
         
