@@ -26,7 +26,8 @@
     
     &-headline {
         font-size: 2.5rem;
-        background-color: orangered;
+        //background-color: orangered;
+        margin-top: 1.5rem;
         
         &--gradient {
             @include gradient-text;
