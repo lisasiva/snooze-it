@@ -63,23 +63,15 @@
     @media (max-width: 20em) { @content; }
 }
 
-// 400px wide and bigger 
-@mixin for-phones-medium-up {
-    @media (min-width: 25em) { @content; }
+// 420px wide and smaller
+@mixin for-phones-medium-down {
+    @media (max-width: 26.25em) { @content; }
 }
 
-// 600px wide and bigger
-@mixin for-phones-large-up {
-    @media (min-width: 37.5em) { @content; }
-}
 
 // 900px wide and bigger
 @mixin for-tablet-landscape-up {
     @media (min-width: 56.25em) { @content; }
 }
 
-// 750px+ wide, 1100px+ tall, portrait mode
-@mixin for-tablet-portrait {
-    @media (min-width: 46.875em) and (min-height: 50em) and (orientation: portrait) { @content; }
-}
 

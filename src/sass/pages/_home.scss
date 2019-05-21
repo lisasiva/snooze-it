@@ -15,13 +15,8 @@
     
     // Text on home screen
     &__text-box {
-        //left: 50%;
         margin: 3rem 0rem 5rem 0rem;
         text-align: center;
-        
-        /*@include for-tablet-portrait {
-            margin: 8rem 0rem;
-        }*/
         
         @include for-tablet-landscape-up {
             margin: 2rem auto;
@@ -34,7 +29,7 @@
         
         &--gradient {
             @include gradient-text;
-            //background: $gradient-violet-blue-bright;; 
+            //background: $gradient-violet-blue-bright; 
     
         }
         
@@ -62,8 +57,9 @@
         text-align: center;
         margin: 5rem auto;
         
-        @include for-phones-large-up {
-            width: 50%;
+        @include for-phones-medium-down {
+            margin: 3.5rem auto;
+            width: 70%;
         }
         
         /*@include for-tablet-portrait {

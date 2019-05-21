@@ -197,10 +197,7 @@ body {
       padding-top: 6rem; } }
   .home__text-box {
     margin: 3rem 0rem 5rem 0rem;
-    text-align: center;
-    /*@include for-tablet-portrait {
-            margin: 8rem 0rem;
-        }*/ }
+    text-align: center; }
     @media (min-width: 56.25em) {
       .home__text-box {
         margin: 2rem auto; } }
@@ -230,9 +227,10 @@ body {
             width: 60%;
             margin: 0rem auto 8.5rem auto;
         }*/ }
-    @media (min-width: 37.5em) {
+    @media (max-width: 26.25em) {
       .home__image-box {
-        width: 50%; } }
+        margin: 3.5rem auto;
+        width: 70%; } }
     @media (min-width: 56.25em) {
       .home__image-box {
         width: 60%; } }
