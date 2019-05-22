@@ -101,7 +101,7 @@ body {
       padding: 2rem 12rem; } }
 
 .btn--signout:link, .btn--signout:visited {
-  display: inline-block;
+  display: none;
   color: #757575;
   font-size: 1.15rem;
   margin-top: -1.2rem; }

@@ -74,7 +74,8 @@
     &--signout {
         &:link,
         &:visited {
-            display: inline-block;
+            //display: inline-block;
+            display: none;
             color: $color-gray-medium;
             font-size: 1.15rem;
             margin-top: -1.2rem;
