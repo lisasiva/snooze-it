@@ -187,7 +187,10 @@ body {
 .home {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%); }
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; }
   @media (min-width: 56.25em) {
     .home {
       left: 50%;
@@ -196,7 +199,7 @@ body {
     .home {
       padding-top: 6rem; } }
   .home__text-box {
-    margin: 3rem 0rem 5rem 0rem;
+    margin: 3rem 0rem 3rem 0rem;
     text-align: center; }
     @media (min-width: 56.25em) {
       .home__text-box {
@@ -226,7 +229,7 @@ body {
     @media (max-width: 26.25em) {
       .home__image-box {
         margin: 3.5rem auto;
-        width: 0%; } }
+        width: 70%; } }
     @media (min-width: 56.25em) {
       .home__image-box {
         width: 60%; } }
