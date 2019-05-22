@@ -206,7 +206,9 @@ body {
         margin: 2rem auto; } }
   .home-headline {
     font-size: 2.5rem;
-    min-height: 102%; }
+    color: orangered;
+    border-top: 1px solid #fff;
+    overflow-y: hidden; }
     .home-headline--gradient {
       background: linear-gradient(to right, #441d8c 0%, #546ead 100%);
       -webkit-background-clip: text;
@@ -237,8 +239,9 @@ body {
   .home .image-main {
     width: 70%; }
   .home__button-box {
-    text-align: center;
-    margin-bottom: -12rem; }
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
 
 .question {
   height: 80vh;
@@ -455,12 +458,6 @@ body {
     animation-name: fadeIn;
     animation-duration: .5s;
     animation-timing-function: ease-out; }
-    .snoozed__text--heading {
-      background: linear-gradient(to right, #441d8c 0%, #546ead 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: 2.5rem;
-      margin-bottom: .5rem; }
     .snoozed__text--paragraph {
       font-size: 1.5rem;
       letter-spacing: .03rem; }

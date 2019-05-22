@@ -32,10 +32,11 @@
     
     &-headline {
         font-size: 2.5rem;
-        //color: orangered;
+        color: orangered;
         
         // TESTING
-        min-height: 102%;
+        border-top: 1px solid $color-white;
+        overflow-y: hidden;
         
         &--gradient {
             @include gradient-text;
@@ -87,11 +88,9 @@
     }
     
     &__button-box {
-        text-align: center;
-        margin-bottom: -12rem;
-        //display: flex;
-        //flex-direction: column;
-        //align-items: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     
         
     }
