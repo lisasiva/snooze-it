@@ -202,13 +202,11 @@ body {
       .home__text-box {
         margin: 2rem auto; } }
   .home-headline {
-    font-size: 2.5rem;
-    color: orangered; }
+    font-size: 2.5rem; }
     .home-headline--gradient {
       background: linear-gradient(to right, #441d8c 0%, #546ead 100%);
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      box-shadow: 0 -0.8px 0 #fff; }
+      -webkit-text-fill-color: transparent; }
     @media (min-width: 56.25em) {
       .home-headline {
         font-size: 3.6rem;
@@ -224,15 +222,11 @@ body {
         font-weight: 300; } }
   .home__image-box {
     text-align: center;
-    margin: 5rem auto;
-    /*@include for-tablet-portrait {
-            width: 60%;
-            margin: 0rem auto 8.5rem auto;
-        }*/ }
+    margin: 5rem auto; }
     @media (max-width: 26.25em) {
       .home__image-box {
         margin: 3.5rem auto;
-        width: 70%; } }
+        width: 0%; } }
     @media (min-width: 56.25em) {
       .home__image-box {
         width: 60%; } }
