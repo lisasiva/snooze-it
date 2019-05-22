@@ -101,10 +101,10 @@ body {
       padding: 2rem 12rem; } }
 
 .btn--signout:link, .btn--signout:visited {
-  display: none;
+  display: block;
   color: #757575;
   font-size: 1.15rem;
-  margin-top: -1.2rem; }
+  margin-top: -2rem; }
 
 .form__container {
   position: relative;
@@ -237,9 +237,8 @@ body {
   .home .image-main {
     width: 70%; }
   .home__button-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center; }
+    text-align: center;
+    margin-bottom: -12rem; }
 
 .question {
   height: 80vh;

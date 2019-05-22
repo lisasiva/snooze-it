@@ -74,11 +74,13 @@
     &--signout {
         &:link,
         &:visited {
-            //display: inline-block;
-            display: none;
+            display: block;
             color: $color-gray-medium;
             font-size: 1.15rem;
-            margin-top: -1.2rem;
+            margin-top: -2rem;
+            
+            // TESTING
+            // display: none;
         }
     }
     
