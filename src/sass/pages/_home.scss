@@ -5,9 +5,9 @@
     transform: translateY(-50%);
     
     // TESTING
-    display: flex;
+    /*display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: stretch;*/
     
     @include for-tablet-landscape-up {
         left: 50%;
@@ -27,14 +27,20 @@
             margin: 2rem auto;
         }
         
+        
     }
     
     &-headline {
         font-size: 2.5rem;
-        //color: orangered;
+        color: orangered;
+        
+        // TESTING
+        min-height: 102%;
         
         &--gradient {
             @include gradient-text;
+            
+            // TESTING
             //outline: 3px solid orangered;
             //overflow-y: hidden;
             //box-shadow: 0 -1px 0 orangered;

@@ -188,9 +188,9 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: stretch; }
+  /*display: flex;
+    flex-direction: column;
+    align-items: stretch;*/ }
   @media (min-width: 56.25em) {
     .home {
       left: 50%;
@@ -205,7 +205,9 @@ body {
       .home__text-box {
         margin: 2rem auto; } }
   .home-headline {
-    font-size: 2.5rem; }
+    font-size: 2.5rem;
+    color: orangered;
+    min-height: 102%; }
     .home-headline--gradient {
       background: linear-gradient(to right, #441d8c 0%, #546ead 100%);
       -webkit-background-clip: text;
