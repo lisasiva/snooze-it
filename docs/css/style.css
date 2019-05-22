@@ -206,7 +206,6 @@ body {
         margin: 2rem auto; } }
   .home-headline {
     font-size: 2.5rem;
-    color: orangered;
     min-height: 102%; }
     .home-headline--gradient {
       background: linear-gradient(to right, #441d8c 0%, #546ead 100%);
