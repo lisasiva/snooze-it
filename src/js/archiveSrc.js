@@ -61,6 +61,9 @@ const renderArchive = async () => {
         
         // Render markups to DOM
         thoughtsView.renderThoughts(state.markups);
+        
+        // Fire Mixpanel Event
+        mixpanel.track('Viewed archive', {'Thoughts': state.thoughts.data.length});
 
     } catch(error) {
         console.log(`Error reading from DynamoDB: ${error}`);
@@ -74,14 +77,9 @@ const renderArchive = async () => {
 const removeThought = (event) => {
     let itemID, id;
     
-    // If delete or share button was clicked, get id of clicked thought
-    if (event.target.className === 'thought__button-text'
-        || event.target.className === 'thought__buttons--delete'
-        || event.target.className === 'thought__buttons--share'
-    ) {
-        itemID = event.target.parentNode.parentNode.parentNode.id
-        id = parseInt(itemID.split('-')[1]);    
-    }
+    itemID = event.target.parentNode.parentNode.parentNode.id
+    id = parseInt(itemID.split('-')[1]);    
+    
 
     // Remove thought from data array
     if(itemID) {
@@ -101,6 +99,9 @@ const removeThought = (event) => {
         if(elementsArchive.thoughtsList.children.length === 0) {
             thoughtsView.displayEmpty();
         }
+        
+        // Fire Mixpanel events
+        mixpanel.track('Deleted thought');
     }
 }
 
@@ -112,8 +113,18 @@ const init = () => {
     // Get user on page load
     window.addEventListener('load', initUser);
     
-    // Update data array and DynamoDB when thought is deleted
-    elementsArchive.thoughtsList.addEventListener('click', removeThought);
+    // When item is clicked in archive
+    elementsArchive.thoughtsList.addEventListener('click', (event) => {
+        // Remove thought if target was delete button
+        if (event.target.className === 'thought__buttons--delete' || event.target.id === 'button--delete-thought') {
+            removeThought(event);
+        
+        // Fire Mixpanel event if target was share button
+        } else if (event.target.className === 'thought__buttons--share' || event.target.id === 'button--share-thought') {
+            mixpanel.track('Shared thought');
+            console.log(event.target);
+        }
+    });
     
     // Send user back to home on button click
     elementsArchive.btnBack.addEventListener('click', () => {
@@ -121,4 +132,7 @@ const init = () => {
     });
 };
 
+
 init();
+
+//mixpanel.track_links('#button--share-thought', 'Shared thought');

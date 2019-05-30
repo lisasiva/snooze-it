@@ -64,9 +64,15 @@ const login = () => {
         },
         
         onSuccess: function(result) {
+            // Get access token
             state.accessToken = result.getAccessToken().getJwtToken();
-            console.log(state.accessToken);
-            window.location.href = pages.home;    
+            
+            // Fire Mixpanel event
+            mixpanel.identify(state.input.email);
+            mixpanel.track('Logged in', {'Date': new Date().toISOString()});
+            
+            // Redirect to homepage
+            window.location.href = pages.home;        
         }    
     });
 };
