@@ -46,6 +46,9 @@ const checkUserState = () => {
         // Point buttons to add and archive screens 
         indexView.setButtons();
         
+        // Listen for "Add Thought" button click and send to Mixpanel
+        mixpanel.track_links('#btn--add-thought', 'Clicked add button');
+        
     } else {
         
         // Otherwise, change buttons to register/login

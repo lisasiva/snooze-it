@@ -39,10 +39,14 @@ const signUp = () => {
             // Display confirmation message to user
             elementsRegister.confirmation.innerHTML = `Thanks, ${state.input.name}! Redirecting you to login...`;
             
+            // MIXPANEL
+            mixpanel.track('Created account', {'Date': new Date().toISOString(), 'Email': state.input.email});
+            mixpanel.alias(state.input.email);
+            
             // Redirect user to login page
-            setTimeout(() => {
+            /*setTimeout(() => {
                 window.location.href = pages.login;
-            }, 1500);
+            }, 1500);*/
         }    
     }); 
 
@@ -61,6 +65,9 @@ const init = () => {
         
         // Call sign up function
         signUp();
+        
+        // MIXPANEL
+        //mixpanel.track('Test - inside init()');
     });
 };
 

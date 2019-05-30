@@ -36,6 +36,10 @@ const controlThought = () => {
     
     // Update DynamoDB
     state.thoughts.postThoughts(state.cognitoUser.username);
+    
+    // Fire Mixpanel event
+
+    mixpanel.track('Added thought', {'Topic': state.input.topic[0]});
 };
 
 /////////////////////////////////////////
