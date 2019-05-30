@@ -44,9 +44,9 @@ const signUp = () => {
             mixpanel.alias(state.input.email);
             
             // Redirect user to login page
-            /*setTimeout(() => {
+            setTimeout(() => {
                 window.location.href = pages.login;
-            }, 1500);*/
+            }, 1500);
         }    
     }); 
 
