@@ -68,8 +68,14 @@ const login = () => {
             state.accessToken = result.getAccessToken().getJwtToken();
             
             // Fire Mixpanel event
+            const today = new Date().toISOString();
+            
+            mixpanel.people.set({
+                "$email": state.input.email,
+                "$last_login": today
+            });
             mixpanel.identify(state.input.email);
-            mixpanel.track('Logged in', {'Date': new Date().toISOString()});
+            mixpanel.track('Logged in', {'Date': today});
             
             // Redirect to homepage
             window.location.href = pages.home;        
