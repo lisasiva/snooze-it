@@ -85,8 +85,8 @@ const getMarkup = (el, icon, tags, url) => {
                 </div>
             </div>
             <div class="thought__buttons">
-                <div class="thought__buttons--delete"><div class="thought__button-text" id="button--delete-thought">Delete</div></div>
-                <div class="thought__buttons--share"><a class="thought__button-text" id="button--share-thought" href="mailto:${url}">Share</a></div>
+                <div class="thought__buttons--delete"><div class="thought__button-text" id="button--delete-thought">Let It Go</div></div>
+                <div class="thought__buttons--share"><a class="thought__button-text" id="button--share-thought" href="mailto:${url}">Bring It Up</a></div>
             </div>
         </div>`;
 };

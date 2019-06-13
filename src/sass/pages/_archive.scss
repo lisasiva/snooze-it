@@ -79,6 +79,11 @@
             background-image: $gradient-violet-blue-bright;
             color: white;
         }
+        
+        &--delete,
+        &--share {
+            
+        }
     }
     
     &__button-text:link,
