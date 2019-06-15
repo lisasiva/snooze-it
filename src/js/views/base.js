@@ -1,9 +1,9 @@
 /*jslint esnext: true*/
-const baseURL = 'https://app.heyhon.co/';
-const endURL = '';
+//const baseURL = 'https://app.heyhon.co/';
+//const endURL = '';
 
-//const baseURL = 'http://localhost:8080/';
-//const endURL = '.html';
+const baseURL = 'http://localhost:8080/';
+const endURL = '.html';
 
 export const pages = {
     snoozed: `${baseURL}snoozed${endURL}`,
@@ -51,5 +51,7 @@ export const elementsHome = {
 };
 
 export const elementsSnoozed = {
+    confirmation: document.querySelector('.snoozed__text--paragraph'),
     btnBack: document.querySelector('.snoozed__option--back'),
+    btnLogin: document.querySelector('.snoozed__option--login'),
 };

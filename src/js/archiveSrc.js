@@ -30,10 +30,11 @@ const initUser = () => {
 
     // If cognitoUser is not null, check session
     if (state.cognitoUser !== null) {
-        renderArchive();
-    } else {
-        window.location.href = pages.login;
+        state.sessionValid = state.user.checkSession(state.cognitoUser);
     }
+    
+    // Render thoughts to page
+    renderArchive();
 };
 
 /////////////////////////////////////////
@@ -46,10 +47,35 @@ const renderArchive = async () => {
     state.thoughts = new Thoughts();
     state.markups = [];
     
+    // Check localStorage
+    let storage = state.thoughts.getStorage();
+    
     try {
-        // Get thoughts from DynamoDB
-        state.thoughts.data = await state.thoughts.getThoughts(state.cognitoUser.username);
-        //console.log(state.thoughts.data);
+        // If user is logged in, get thoughts from DynamoDB
+        if (state.cognitoUser !== null) {
+            console.log('user or session is not null');
+            if (storage) {
+                state.thoughts.data = storage;
+                localStorage.removeItem('data');
+                state.thoughts.postThoughts(state.cognitoUser.username);
+                console.log('if (storage) block is in effect');
+            } else {
+                state.thoughts.data = await state.thoughts.getThoughts(state.cognitoUser.username); 
+                console.log('else if !storage block is in effect');
+                console.log(state.cognitoUser.username);
+            }    
+        // Else if user is not logged in, get thoughts from localStorage
+        } else {
+            if (storage) {
+                state.thoughts.data = storage;
+                console.log('if block is in effect');
+            } else {
+                state.thoughts.data = [];
+                console.log('else block is in effect');
+            }
+        }
+        
+        console.log(state.thoughts.data);
         
         // If there are none, show empty state
         if(state.thoughts.data.length === 0) {
@@ -92,8 +118,13 @@ const removeThought = (event) => {
         // Remove element from state.thoughts.data
         state.thoughts.deleteThought(id);
         
-        // Update DynamoDB
-        state.thoughts.postThoughts(state.cognitoUser.username);
+        // If user is logged in, update DynamoDB
+        if (state.cognitoUser !== null) {
+            state.thoughts.postThoughts(state.cognitoUser.username);
+        // Else if user is anonymous, update localStorage
+        } else {
+            state.thoughts.setStorage();
+        }
         
         // Display empty state if needed
         if(elementsArchive.thoughtsList.children.length === 0) {
