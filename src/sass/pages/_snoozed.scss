@@ -35,5 +35,22 @@
         @include back-button;
         display: block;
     }
+    
+    &__option--login {
+        margin-top: 1rem;
+        display: none;
+        text-decoration: none;
+        text-align: center;
+        
+        &:link,
+        &:visited {
+            color: $color-violet-bright;
+        }
+        
+        &:hover,
+        &:active {
+            color: $color-violet-dark;
+        }
+    }
 }
 

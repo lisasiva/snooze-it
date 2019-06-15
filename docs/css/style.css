@@ -470,3 +470,12 @@ body {
     .snoozed__option--back:active, .snoozed__option--back:focus {
       background-image: linear-gradient(to right, #441d8c 0%, #546ead 100%);
       color: white; }
+  .snoozed__option--login {
+    margin-top: 1rem;
+    display: none;
+    text-decoration: none;
+    text-align: center; }
+    .snoozed__option--login:link, .snoozed__option--login:visited {
+      color: #7934fa; }
+    .snoozed__option--login:hover, .snoozed__option--login:active {
+      color: #441d8c; }

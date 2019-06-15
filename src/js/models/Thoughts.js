@@ -104,4 +104,17 @@ export default class Thoughts {
         }
     }
     
+    // Save thoughts in localStorage - for anonymous users
+    setStorage() {
+        localStorage.setItem('data', JSON.stringify(this.data));
+    }
+    
+    // Get thoughts from localStorage - for anonymous users
+    getStorage() {
+        const storage = JSON.parse(localStorage.getItem('data'));
+        if (storage) {
+            return storage;
+        }
+    }
+    
 }
